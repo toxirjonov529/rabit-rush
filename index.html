@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Rabbit Rush</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+<input id="inp" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="typing">
+
+<div id="top" class="hide">
+  <div id="hud">
+    <div><b id="sScore">0</b><i data-t="score"></i></div>
+    <div><b id="sHeight">0</b><i data-t="height"></i></div>
+    <div><b id="sWords">0</b><i data-t="words"></i></div>
+    <div><b id="sWpm">0</b><i data-t="wpm"></i></div>
+    <div><b id="sAcc">100%</b><i data-t="acc"></i></div>
+    <div><b id="sCoins">0</b><i data-t="coins"></i></div>
+    <div><b id="sStreak">0</b><i data-t="streak"></i></div>
+    <div id="pw"></div><button id="pauseBtn" class="pause-btn" type="button" aria-label="Pause">Ⅱ</button>
+  </div>
+  <div id="wordBox"><div id="word"></div><div id="tr"></div></div>
+</div>
+<div id="toast"></div>
+
+<section id="menu" class="screen">
+  <h1 class="logo">🐰 RABBIT<span>RUSH</span></h1>
+  <button class="btn pri" data-go="play" data-t="play"></button>
+  <button class="btn" data-go="how" data-t="how"></button>
+  <button class="btn" data-go="set" data-t="set"></button>
+  <div class="mode-pick" aria-label="Game mode">
+    <button class="mode-chip active" data-mode="classic">CLASSIC</button>
+    <button class="mode-chip" data-mode="time">TIME 60s</button>
+    <button class="mode-chip" data-mode="endless">ENDLESS</button>
+    <button class="mode-chip" data-mode="practice">PRACTICE</button>
+  </div>
+  <div class="world-line"><span>🌍 WORLD</span><b id="worldName">GREEN VALLEY</b></div>
+  <p class="best"><span data-t="best"></span>: <b id="best">0</b></p>
+  <div class="row"><button class="btn sm" data-lang="en">English</button><button class="btn sm" data-lang="uz">O'zbekcha</button></div>
+</section>
+
+<section id="how" class="screen hide">
+  <div class="card" data-t="howText"></div>
+  <button class="btn" data-go="menu" data-t="back"></button>
+</section>
+
+<section id="set" class="screen hide">
+  <h2 data-t="set"></h2>
+  <button class="btn" data-set="sound"><span data-t="sound"></span>: <b></b></button>
+  <button class="btn" data-set="music"><span data-t="music"></span>: <b></b></button>
+  <button class="btn" data-set="anim"><span data-t="anim"></span>: <b></b></button>
+  <button class="btn" data-set="easy"><span data-t="easy"></span>: <b></b></button>
+  <div class="row"><button class="btn sm" data-lang="en">English</button><button class="btn sm" data-lang="uz">O'zbekcha</button></div>
+  <button class="btn pri" data-go="menu" data-t="back"></button>
+</section>
+
+<section id="over" class="screen hide">
+  <h2 data-t="over"></h2>
+  <div id="rec" class="rec"></div>
+  <div class="card stats">
+    <div><span data-t="score"></span><b id="oScore"></b></div>
+    <div><span data-t="height"></span><b id="oHeight"></b></div>
+    <div><span data-t="words"></span><b id="oWords"></b></div>
+    <div><span data-t="wpm"></span><b id="oWpm"></b></div>
+    <div><span data-t="acc"></span><b id="oAcc"></b></div>
+  </div>
+  <div class="card"><b data-t="learned"></b><div id="oLearn" class="chips"></div></div>
+  <button class="btn pri" data-go="play" data-t="restart"></button>
+  <button class="btn" data-go="menu" data-t="menu"></button>
+</section>
+
+<section id="pause" class="screen hide">
+  <h2>⏸ PAUSED</h2>
+  <p class="pause-note">Take a breath. Your progress is safe.</p>
+  <button class="btn pri" data-action="resume">RESUME</button>
+  <button class="btn" data-go="play" data-action="restart">RESTART</button>
+  <button class="btn" data-go="menu">MAIN MENU</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
